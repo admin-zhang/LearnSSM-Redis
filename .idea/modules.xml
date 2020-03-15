@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/LearnMyBatis/LearnMyBatis/LearnMyBatis.iml" filepath="$PROJECT_DIR$/LearnMyBatis/LearnMyBatis/LearnMyBatis.iml" />
+      <module fileurl="file://$PROJECT_DIR$/LearnSSM-Redis.iml" filepath="$PROJECT_DIR$/LearnSSM-Redis.iml" />
+      <module fileurl="file://$PROJECT_DIR$/LearnSpring/LearnSpring.iml" filepath="$PROJECT_DIR$/LearnSpring/LearnSpring.iml" />
+    </modules>
+  </component>
+</project>
