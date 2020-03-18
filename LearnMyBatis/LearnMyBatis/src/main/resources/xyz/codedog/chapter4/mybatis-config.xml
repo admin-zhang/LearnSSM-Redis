@@ -4,8 +4,9 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
     <typeAliases>
-        <typeAlias type="xyz.codedog.chapter4.pojo.Role" alias="role" />
-        <typeAlias type="xyz.codedog.chapter4.pojo.User" alias="user" />
+        <package name="xyz.codedog.chapter4.pojo"/>
+<!--        <typeAlias type="xyz.codedog.chapter4.pojo.Role" alias="role" />-->
+<!--        <typeAlias type="xyz.codedog.chapter4.pojo.User" alias="user" />-->
     </typeAliases>
     <typeHandlers>
         <typeHandler handler="xyz.codedog.chapter4.typeHandler.MyTypeHandler" jdbcType="VARCHAR" javaType="string" />
@@ -22,7 +23,8 @@
         </environment>
     </environments>
     <mappers>
-        <mapper resource="xyz/codedog/chapter4/mapper/RoleMapper.xml"/>
-        <mapper resource="xyz/codedog/chapter4/mapper/UserMapper.xml"/>
+<!--        <mapper resource="xyz/codedog/chapter4/mapper/RoleMapper.xml"/>-->
+<!--        <mapper resource="xyz/codedog/chapter4/mapper/UserMapper.xml"/>-->
+        <package name="xyz/codedog/chapter4/mapper"/>
     </mappers>
 </configuration>

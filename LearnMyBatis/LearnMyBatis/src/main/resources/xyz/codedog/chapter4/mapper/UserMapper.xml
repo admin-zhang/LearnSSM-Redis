@@ -9,7 +9,8 @@
         <result property="userName" column="user_name"/>
         <result property="password" column="password"/>
 <!--        <result property="sexEnum" column="sex" typeHandler="org.apache.ibatis.type.EnumOrdinalTypeHandler"/>-->
-        <result property="sexEnum" column="sex" typeHandler="org.apache.ibatis.type.EnumTypeHandler"/>
+<!--        <result property="sexEnum" column="sex" typeHandler="org.apache.ibatis.type.EnumTypeHandler"/>-->
+        <result property="sexEnum" column="sex" typeHandler="xyz.codedog.chapter4.typeHandler.SexEnumTypeHandler"/>
         <result property="mobile" column="mobile"/>
         <result property="tel" column="tel"/>
         <result property="email" column="email"/>
