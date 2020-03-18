@@ -44,9 +44,30 @@
             </dataSource>
         </environment>
     </environments>
+
+<!--    数据库厂商标识-->
+    <databaseIdProvider type="DB_VENDOR">
+        <property name="Oracle" value="oracle"/>
+        <property name="MySQl" value="mysql"/>
+        <property name="DB@" value="db2"/>
+    </databaseIdProvider>
+
+<!--    映射器-->
     <mappers>
-<!--        <mapper resource="xyz/codedog/chapter4/mapper/RoleMapper.xml"/>-->
-<!--        <mapper resource="xyz/codedog/chapter4/mapper/UserMapper.xml"/>-->
+<!--        文件路径引入-->
+        <!--
+            <mapper resource="xyz/codedog/chapter4/mapper/RoleMapper.xml"/>
+        -->
+
+<!--        包名引入-->
         <package name="xyz/codedog/chapter4/mapper"/>
+
+<!--        类注册引入-->
+        <!--
+            <mapper class="xyz.codedog.chapter4.mapper.RoleMapper"/>
+        -->
+
+<!--        -->
+
     </mappers>
 </configuration>
