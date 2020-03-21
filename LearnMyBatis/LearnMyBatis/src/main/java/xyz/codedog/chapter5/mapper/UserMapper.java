@@ -4,6 +4,6 @@ import xyz.codedog.chapter5.pojo.User;
 
 public interface UserMapper {
 
-    public int countUserByIdFirstName(String userName);
+    public int countUserByFirstName(String userName);
 
 }
