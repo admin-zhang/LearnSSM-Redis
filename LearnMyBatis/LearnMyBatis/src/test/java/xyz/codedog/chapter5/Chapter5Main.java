@@ -1,5 +1,6 @@
 package xyz.codedog.chapter5;
 
+import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.log4j.Logger;
 import org.junit.Test;
@@ -84,5 +85,21 @@ public class Chapter5Main {
             }
         }
     }
+
+    @Test
+    public void testFindByRowBounds(){
+        try {
+            sqlSession = SqlSessionFactoryUtils.openSqlSession();
+            RoleMapper roleMapper = sqlSession.getMapper(RoleMapper.class);
+            RowBounds rowBounds = new RowBounds();
+            List<Role> roleList = roleMapper.findByRowBounds("张三", "正", rowBounds);
+            System.err.println(roleList.size());
+        }finally {
+            if (sqlSession != null) {
+                sqlSession.close();
+            }
+        }
+    }
+
 
 }

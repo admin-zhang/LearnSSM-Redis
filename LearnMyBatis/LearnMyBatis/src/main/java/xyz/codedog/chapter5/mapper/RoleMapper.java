@@ -1,6 +1,7 @@
 package xyz.codedog.chapter5.mapper;
 
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.session.RowBounds;
 import xyz.codedog.chapter5.pojo.Role;
 import xyz.codedog.chapter5.pojo.RoleParams;
 
@@ -25,4 +26,12 @@ public interface RoleMapper {
 
     //使用 JavaBean 传递多个参数
     public List<Role> findRolesByBean(RoleParams roleParams);
+
+    //分页参数RowBounds
+    public List<Role> findByRowBounds(@Param("roleName") String roleName, @Param("note") String note, RowBounds rowBounds);
+
+
+
+
+
 }
