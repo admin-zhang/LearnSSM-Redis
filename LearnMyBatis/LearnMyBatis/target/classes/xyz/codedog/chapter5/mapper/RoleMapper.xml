@@ -32,4 +32,9 @@
         and note like concat('%',#{note},'%')
     </select>
 
+<!--    INSERT    -->
+    <insert id="insertRole" parameterType="xyz.codedog.chapter5.pojo.Role" useGeneratedKeys="true" keyProperty="id">
+        insert into t_role(role_name,note) values(#{roleName},#{note})
+    </insert>
+
 </mapper>

@@ -30,8 +30,8 @@ public interface RoleMapper {
     //分页参数RowBounds
     public List<Role> findByRowBounds(@Param("roleName") String roleName, @Param("note") String note, RowBounds rowBounds);
 
-
-
+    //insert
+    public int insertRole(Role role);
 
 
 }

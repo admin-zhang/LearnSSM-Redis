@@ -101,5 +101,21 @@ public class Chapter5Main {
         }
     }
 
-
+    @Test
+    public void testInsertRole(){
+        try {
+            sqlSession = SqlSessionFactoryUtils.openSqlSession();
+            RoleMapper roleMapper = sqlSession.getMapper(RoleMapper.class);
+            Role role = new Role();
+            role.setRoleName("李四");
+            role.setNote("今天是个好日子");
+            int i = roleMapper.insertRole(role);
+            System.err.println("当前插入了" + i + "条数据");
+            sqlSession.commit();
+        }finally {
+            if (sqlSession != null) {
+                sqlSession.close();
+            }
+        }
+    }
 }
