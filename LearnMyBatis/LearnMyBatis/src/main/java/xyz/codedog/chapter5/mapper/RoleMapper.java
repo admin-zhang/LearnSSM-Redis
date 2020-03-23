@@ -33,5 +33,12 @@ public interface RoleMapper {
     //insert
     public int insertRole(Role role);
 
+    //sql元素
+    public Role getRole1(Long id);
+
+    public Role getRole2(Long id);
+
+    public int insertRole1(Role role);
+
 
 }
