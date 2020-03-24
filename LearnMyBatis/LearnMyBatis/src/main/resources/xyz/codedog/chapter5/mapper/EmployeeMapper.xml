@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="xyz.codedog.chapter5.mapper.EmployeeMapper">
+    <resultMap id="employee" type="xyz.codedog.chapter5.pojo.Employee">
+        <id column="id" property="id"/>
+        <result column="real_name" property="realName"/>
+        <result column="sex" property="sex" typeHandler="xyz.codedog.chapter5.typeHandler.SexTypeHandler"/>
+        <result column="birthday" property="birthday"/>
+        <result column="mobile" property="mobile"/>
+        <result column="email" property="email"/>
+        <result column="position" property="position"/>
+        <result column="note" property="note"/>
+<!--        一对一级联-->
+        <association property="workCard" column="id"
+                     select="xyz.codedog.chapter5.mapper.WorkCardMapper.getWorkCardByEmpId"/>
+<!--        一对多级联-->
+        <collection property="employeeTaskList" column="id"
+                    select="xyz.codedog.chapter5.mapper.EmployeeTaskMapper.getEmployeeTaskByEmpId"/>
+<!--        鉴别器-->
+        <discriminator javaType="long" column="sex">
+            <case value="1" resultMap="maleHealthFormMapper"/>
+            <case value="2" resultMap="femaleHealthFormMapper"/>
+        </discriminator>
+    </resultMap>
+
+    <select id="getEmployee" parameterType="long" resultMap="employee">
+        select id,real_name,sex,birthday,mobile,email,position,note from t_employee where id = #{id}
+    </select>
+
+</mapper>

@@ -1,5 +1,7 @@
 package xyz.codedog.chapter5.mapper;
 
+import xyz.codedog.chapter5.pojo.FemaleHealthForm;
+
 /**
  * @InterfaceName FemaleHealthFormMapper
  * @Description TODO
@@ -8,4 +10,5 @@ package xyz.codedog.chapter5.mapper;
  * @Version 1.0
  **/
 public interface FemaleHealthFormMapper {
+    public FemaleHealthForm getFemaleHealthForm();
 }
