@@ -7,7 +7,7 @@ package xyz.codedog.chapter5.pojo;
  * @Date 2020/3/23 下午7:36
  * @Version 1.0
  **/
-public class FamaleEmployee extends Employee {
+public class FemaleEmployee extends Employee {
     private FemaleHealthForm femaleHealthForm = null;
 
     public FemaleHealthForm getFemaleHealthForm() {

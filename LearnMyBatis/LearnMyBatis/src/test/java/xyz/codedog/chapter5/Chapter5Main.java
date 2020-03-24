@@ -4,7 +4,9 @@ import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.log4j.Logger;
 import org.junit.Test;
+import xyz.codedog.chapter5.mapper.EmployeeMapper;
 import xyz.codedog.chapter5.mapper.RoleMapper;
+import xyz.codedog.chapter5.pojo.Employee;
 import xyz.codedog.chapter5.pojo.Role;
 import xyz.codedog.chapter5.pojo.RoleParams;
 import xyz.codedog.chapter5.utils.SqlSessionFactoryUtils;
@@ -118,4 +120,21 @@ public class Chapter5Main {
             }
         }
     }
+
+    @Test
+    public void testGetEmployee(){
+        try {
+            sqlSession = SqlSessionFactoryUtils.openSqlSession();
+            EmployeeMapper employeeMapper = sqlSession.getMapper(EmployeeMapper.class);
+            Employee employee = employeeMapper.getEmployee(1L);
+            log.info(employee.getBirthday());
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            if (sqlSession != null) {
+                sqlSession.close();
+            }
+        }
+    }
+
 }
