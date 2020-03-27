@@ -11,4 +11,6 @@ import xyz.codedog.chapter5.pojo.Employee;
  **/
 public interface EmployeeMapper {
     public Employee getEmployee(long id);
+
+    public Employee getEmployee2(long id);
 }

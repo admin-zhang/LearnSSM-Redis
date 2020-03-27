@@ -17,7 +17,7 @@
         <association property="workCard" column="id"
                      select="xyz.codedog.chapter5.mapper.WorkCardMapper.getWorkCardByEmpId"/>
 <!--        一对多级联-->
-        <collection property="employeeTaskList" column="id"
+        <collection property="employeeTaskList" column="id" fetchType="eager"
                     select="xyz.codedog.chapter5.mapper.EmployeeTaskMapper.getEmployeeTaskByEmpId"/>
 <!--        鉴别器-->
         <discriminator javaType="long" column="sex">

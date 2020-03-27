@@ -17,7 +17,7 @@
         <association property="workCard" column="id"
                      select="xyz.codedog.chapter5.mapper.WorkCardMapper.getWorkCardByEmpId"/>
 <!--        一对多级联-->
-        <collection property="employeeTaskList" column="id"
+        <collection property="employeeTaskList" column="id" fetchType="eager"
                     select="xyz.codedog.chapter5.mapper.EmployeeTaskMapper.getEmployeeTaskByEmpId"/>
 <!--        鉴别器-->
         <discriminator javaType="long" column="sex">
@@ -38,6 +38,29 @@
 
     <select id="getEmployee" parameterType="long" resultMap="employee">
         select id,real_name,sex,birthday,mobile,email,position,note from t_employee where id = #{id}
+    </select>
+
+    <select id="getEmployee2" resultType="xyz.codedog.chapter5.pojo.Employee" parameterType="long">
+        select emp.id,emp.real_name,emp.sex,emp.birthday,emp.mobile,emp.email,emp.position,emp.note,
+        te.id as et_id,et.task_id as et_task_id,et.task_name as et_task_name,et.note as et_note,
+        if(emp.sex = 1,mhf.id,fhf.id) as h_id,
+        if(emp.sex = 1,mhf.heart, fhf.heart) as h_heart,
+        if(emp.sex = 1 ,mhf.liver, fhf.liver) as h_liver,
+        if(emp.sex = 1 ,mhf.spleen, fhf.spleen) as h_spleen,
+        if(emp.sex = 1 ,mhf.lung, fhf.lung) as h_lung,
+        if(emp.sex = 1 ,mhf.kidney,fhf.kidney) as h_kidney,
+        if(emp.sex = 1 ,mhf.note, fhf.note) as h_note,
+        mhf.prostate as h_prostate, fhf.uterus as h_uterus,
+        wc.id wc_id, wc.rean_name wc_real_name, wc.department wc_department, wc.mobile wc_mobile,wc.position wc_position,
+        wc.note wc_note,
+        t.id as t_id , t.title as t_title, t.context as t_context,t.note as t_note
+        from t_employee emp
+        left join t_employee_task et on emp.id = et.emp_id
+        left join t_female_health_from fhf on emp.id = fhf.emp_id
+        left join t_male_health_form mhf on emp.id = mhf.emp_id
+        left join t_work_card wc on emp.id = wc.emp_id
+        left join t_task t on et.task_id = t.id
+        where emp.id = #{id}
     </select>
 
 </mapper>
