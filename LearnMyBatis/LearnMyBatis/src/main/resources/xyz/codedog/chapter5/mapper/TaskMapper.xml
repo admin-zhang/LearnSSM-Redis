@@ -4,7 +4,12 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="xyz.codedog.chapter5.mapper.TaskMapper">
-
+    <resultMap id="task" type="xyz.codedog.chapter5.pojo.Task">
+        <id column="t_id" property="id"/>
+        <result column="t_title" property="title"/>
+        <result column="t_context" property="context"/>
+        <result column="t_note" property="note"/>
+    </resultMap>
 
     <select id="getTask" resultType="xyz.codedog.chapter5.pojo.Task" parameterType="long">
         select id,title,context,note from t_task where id = #{id}
