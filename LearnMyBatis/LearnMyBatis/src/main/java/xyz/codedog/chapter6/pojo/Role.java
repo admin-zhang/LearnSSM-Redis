@@ -1,4 +1,4 @@
-package xyz.codedog.chapter5.pojo;
+package xyz.codedog.chapter6.pojo;
 
 import java.io.Serializable;
 

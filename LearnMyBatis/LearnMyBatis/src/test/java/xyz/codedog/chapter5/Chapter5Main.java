@@ -175,4 +175,46 @@ public class Chapter5Main {
     }
 
 
+    @Test
+    public void testCache() {
+        try {
+            sqlSession = SqlSessionFactoryUtils.openSqlSession();
+            RoleMapper roleMapper = sqlSession.getMapper(RoleMapper.class);
+            Role role = roleMapper.getRole(1L);
+            log.info("再获取一次POJO.......");
+            Role role1 = roleMapper.getRole(1L);
+        } catch (Exception e) {
+            log.info(e.getMessage(),e);
+        }finally {
+            if (sqlSession != null) {
+                sqlSession.close();
+            }
+        }
+    }
+
+    @Test
+    public void testCache2() {
+        SqlSession sqlSession1 = null;
+        try {
+            sqlSession = SqlSessionFactoryUtils.openSqlSession();
+            sqlSession1 = SqlSessionFactoryUtils.openSqlSession();
+            RoleMapper roleMapper = sqlSession.getMapper(RoleMapper.class);
+            Role role = roleMapper.getRole(1L);
+            sqlSession.commit();
+            log.info("不同sqlSession再获取一次POJO.......");
+            RoleMapper roleMapper1 = sqlSession1.getMapper(RoleMapper.class);
+            Role role1 = roleMapper1.getRole(1L);
+            sqlSession1.commit();
+        } catch (Exception e) {
+            log.info(e.getMessage(),e);
+        }finally {
+            if (sqlSession != null) {
+                sqlSession.close();
+            }
+            if (sqlSession1 != null) {
+                sqlSession1.close();
+            }
+        }
+    }
+
 }
