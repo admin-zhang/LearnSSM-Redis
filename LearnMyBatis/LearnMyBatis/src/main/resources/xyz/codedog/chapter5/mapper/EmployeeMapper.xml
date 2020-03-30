@@ -114,12 +114,12 @@
         if(emp.sex = 1 ,mhf.kidney,fhf.kidney) as h_kidney,
         if(emp.sex = 1 ,mhf.note, fhf.note) as h_note,
         mhf.prostate as h_prostate, fhf.uterus as h_uterus,
-        wc.id wc_id, wc.rean_name wc_real_name, wc.department wc_department, wc.mobile wc_mobile,wc.position wc_position,
+        wc.id wc_id, wc.real_name wc_real_name, wc.department wc_department, wc.mobile wc_mobile,wc.position wc_position,
         wc.note wc_note,
         t.id as t_id , t.title as t_title, t.context as t_context,t.note as t_note
         from t_employee emp
         left join t_employee_task et on emp.id = et.emp_id
-        left join t_female_health_from fhf on emp.id = fhf.emp_id
+        left join t_female_health_form fhf on emp.id = fhf.emp_id
         left join t_male_health_form mhf on emp.id = mhf.emp_id
         left join t_work_card wc on emp.id = wc.emp_id
         left join t_task t on et.task_id = t.id

@@ -1,5 +1,6 @@
 package xyz.codedog.chapter5.pojo2;
 
+
 import xyz.codedog.chapter5.pojo.SexEnum;
 
 import java.util.List;
@@ -14,13 +15,13 @@ import java.util.List;
 public class User2 {
     private Long id;
     private String userName;
-    private String realName;
     private SexEnum sex;
-    private String moble;
+    private String mobile;
     private String email;
+    private String position;
     private String note;
     //对角色一对多关联
-    private List<Role2> role2List;
+    private List<Role2> roleList;
 
     public Long getId() {
         return id;
@@ -38,14 +39,6 @@ public class User2 {
         this.userName = userName;
     }
 
-    public String getRealName() {
-        return realName;
-    }
-
-    public void setRealName(String realName) {
-        this.realName = realName;
-    }
-
     public SexEnum getSex() {
         return sex;
     }
@@ -54,12 +47,12 @@ public class User2 {
         this.sex = sex;
     }
 
-    public String getMoble() {
-        return moble;
+    public String getMobile() {
+        return mobile;
     }
 
-    public void setMoble(String moble) {
-        this.moble = moble;
+    public void setMobile(String mobile) {
+        this.mobile = mobile;
     }
 
     public String getEmail() {
@@ -70,6 +63,14 @@ public class User2 {
         this.email = email;
     }
 
+    public String getPosition() {
+        return position;
+    }
+
+    public void setPosition(String position) {
+        this.position = position;
+    }
+
     public String getNote() {
         return note;
     }
@@ -78,11 +79,11 @@ public class User2 {
         this.note = note;
     }
 
-    public List<Role2> getRole2List() {
-        return role2List;
+    public List<Role2> getRoleList() {
+        return roleList;
     }
 
-    public void setRole2List(List<Role2> role2List) {
-        this.role2List = role2List;
+    public void setRoleList(List<Role2> roleList) {
+        this.roleList = roleList;
     }
 }

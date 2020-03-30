@@ -6,9 +6,12 @@ import org.apache.log4j.Logger;
 import org.junit.Test;
 import xyz.codedog.chapter5.mapper.EmployeeMapper;
 import xyz.codedog.chapter5.mapper.RoleMapper;
+import xyz.codedog.chapter5.mapper2.RoleMapper2;
+import xyz.codedog.chapter5.mapper2.UserMapper2;
 import xyz.codedog.chapter5.pojo.Employee;
 import xyz.codedog.chapter5.pojo.Role;
 import xyz.codedog.chapter5.pojo.RoleParams;
+import xyz.codedog.chapter5.pojo2.Role2;
 import xyz.codedog.chapter5.utils.SqlSessionFactoryUtils;
 import xyz.codedog.chapter5.mapper.UserMapper;
 
@@ -136,5 +139,40 @@ public class Chapter5Main {
             }
         }
     }
+
+    @Test
+    public void testGetEmployee2(){
+        try {
+            sqlSession = SqlSessionFactoryUtils.openSqlSession();
+            EmployeeMapper employeeMapper = sqlSession.getMapper(EmployeeMapper.class);
+            Employee employee = employeeMapper.getEmployee2(1L);
+            log.info(employee.getBirthday());
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            if (sqlSession != null) {
+                sqlSession.close();
+            }
+        }
+    }
+
+    @Test
+    public void testFindRoleByUserId(){
+        try {
+            sqlSession = SqlSessionFactoryUtils.openSqlSession();
+            RoleMapper2 roleMapper2 = sqlSession.getMapper(RoleMapper2.class);
+            Role2 role = roleMapper2.getRole(1L);
+            role.getUserList();
+            UserMapper2 userMapper2 = sqlSession.getMapper(UserMapper2.class);
+            userMapper2.getUser(1L);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally {
+            if (sqlSession != null) {
+                sqlSession.close();
+            }
+        }
+    }
+
 
 }
