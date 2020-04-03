@@ -4,6 +4,7 @@ import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import xyz.codedog.chapter1.pojo.JuiceMaker2;
+import xyz.codedog.chapter1.pojo.JuiceMaker3;
 
 /**
  * @ClassName Chapter1Main
@@ -14,10 +15,16 @@ import xyz.codedog.chapter1.pojo.JuiceMaker2;
  **/
 public class Chapter1Main {
     private static final String resources = "xyz/codedog/chapter1/applicationContext.xml";
+    ApplicationContext applicationContext = new ClassPathXmlApplicationContext(resources);
     @Test
     public void test01(){
-        ApplicationContext applicationContext = new ClassPathXmlApplicationContext(resources);
         JuiceMaker2 juiceMaker2 = (JuiceMaker2) applicationContext.getBean("juiceMaker2");
         System.out.println(juiceMaker2.makeJuice());
+    }
+
+    @Test
+    public void test02(){
+        JuiceMaker3 juiceMaker3 = (JuiceMaker3) applicationContext.getBean("juiceMaker3");
+        System.out.println(juiceMaker3.makeJuice());
     }
 }
