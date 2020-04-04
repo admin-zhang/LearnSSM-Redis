@@ -11,6 +11,7 @@ import xyz.codedog.chapter2.pojo.Role1;
  * @Date 2020/4/4 上午10:21
  * @Version 1.0
  **/
-@ComponentScan(basePackageClasses = {Role1.class, RoleServiceImpl.class})
+//@ComponentScan(basePackageClasses = {Role1.class, RoleServiceImpl.class})
+@ComponentScan({"xyz.codedog.chapter2.pojo","xyz.codedog.chapter2.annotation"})
 public class ApplicationConfig {
 }
