@@ -1,6 +1,5 @@
 package xyz.codedog.chapter2.annotation.service.impl;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import xyz.codedog.chapter2.annotation.service.RoleService;
 import xyz.codedog.chapter2.pojo.Role1;
@@ -12,8 +11,8 @@ import xyz.codedog.chapter2.pojo.Role1;
  * @Date 2020/4/4 上午10:18
  * @Version 1.0
  **/
-@Component
-public class RoleServiceImpl implements RoleService {
+@Component("roleService3")
+public class RoleServiceImpl3 implements RoleService {
 
     @Override
     public void printRoleInfo(Role1 role1) {
