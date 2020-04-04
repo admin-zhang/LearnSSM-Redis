@@ -1,10 +1,12 @@
 package xyz.codedog.chapter2;
 
 import org.junit.Test;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import xyz.codedog.chapter2.annotation.config.ApplicationConfig;
 import xyz.codedog.chapter2.annotation.service.RoleService;
 import xyz.codedog.chapter2.pojo.Role1;
+import xyz.codedog.chapter2.properties.ApplocationConfig;
 
 /**
  * @ClassName Chapter2Main
@@ -23,4 +25,12 @@ public class Chapter2Main {
         roleService.printRoleInfo(role1);
         context.close();
     }
+
+    @Test
+    public void test02() {
+        ApplicationContext context = new AnnotationConfigApplicationContext(ApplocationConfig.class);
+        String url = context.getEnvironment().getProperty("jdbc.database.url");
+        System.out.println(url);
+    }
+
 }

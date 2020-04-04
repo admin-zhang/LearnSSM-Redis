@@ -1,11 +1,12 @@
 package xyz.codedog.chapter2.profile;
 
-import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ActiveProfiles;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import javax.sql.DataSource;
-import javax.xml.crypto.Data;
 
 /**
  * @ClassName ProfileTest
@@ -15,7 +16,7 @@ import javax.xml.crypto.Data;
  * @Version 1.0
  **/
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(Classes=ProfileDataSource.class)
+@ContextConfiguration(classes=ProfileDataSource.class)
 @ActiveProfiles("dev")
 public class ProfileTest {
     @Autowired
