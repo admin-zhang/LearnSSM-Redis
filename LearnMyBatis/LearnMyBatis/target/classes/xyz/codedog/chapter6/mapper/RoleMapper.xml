@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--动态SQL-->
+<mapper namespace="xyz.codedog.chapter6.mapper.RoleMapper">
+    <resultMap id="roleResultMap" type="xyz.codedog.chapter6.pojo.Role">
+        <id column="id" property="id"/>
+        <result column="role_name" property="roleName"/>
+        <result column="note" property="note"/>
+    </resultMap>
+
+    <sql id="sel">
+        select id,rolt_name,note from t_role
+    </sql>
+
+<!-- if 元素-->
+    <select id="findRoles" parameterType="string" resultMap="roleResultMap">
+        select id,role_name,note from t_role where 1 = 1
+        <if test="roleName != null and roleName !=''">
+            and role_name like concat('%',#{roleName},'%')
+        </if>
+    </select>
+<!-- choose 元素-->
+    <select id="findRoles1" resultType="role" resultMap="roleResultMap">
+        <include refid="sel" />
+        where 1 = 1
+        <choose>
+            <when test="id != null and id !=''">
+                and id = #{id}
+            </when>
+            <when test="roleName != null and roleName !=''">
+                and role_name like concat('#',#{roleName},'%')
+            </when>
+            <otherwise>
+                and note is not null
+            </otherwise>
+        </choose>
+    </select>
+<!--    where 元素-->
+    <select id="findRoles3" resultMap="roleResultMap" parameterType="role">
+        <include refid="sel" />
+        <where>
+            <if test="roleName != null and roleName !=''">
+                and role_name like concat('%',#{roleName},'%')
+            </if>
+            <if test="note != null and note !=''">
+                and note like concat ('%',#{note},'%')
+            </if>
+        </where>
+    </select>
+
+<!--    trim 元素-->
+    <select id="findRoles4" parameterType="string" resultMap="roleResultMap">
+        <include refid="sel" />
+        <trim prefix="where" prefixOverrides="and">
+            <if test="roleName != null and roleName !=''">
+                and role_name like concat('%',#{roleName},'%')
+            </if>
+        </trim>
+    </select>
+<!--set 元素-->
+    <update id="updateRoles" parameterType="role">
+        update t_role
+        <set>
+            <if test="roleName != null and roleName != ''">
+                role_name = #{roleName},
+            </if>
+            <if test="note != null and note != ''">
+                note = #{note}
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+<!--bind 元素-->
+    <select id="findRoles5" parameterType="string" resultMap="roleResultMap">
+        <bind name="pattern" value="'%' + _parameter + '%'"/>
+        <include refid="sel" />
+        where role_name like #{pattern}
+    </select>
+<!-- bind 元素 多参数-->
+    <select id="findRoles6" resultMap="roleResultMap">
+        <bind name="pattern_roleName" value="'%' + roleName + '%'"/>
+        <bind name="pattern_note" value="'%' + note +'%'"/>
+        <include refid="sel"/>
+        where role_name like #{pattern_roleName} and note like #{pattern_note}
+    </select>
+
+<!--    foreach 元素-->
+    <select id="findRoleByNums" resultMap="roleResultMap">
+        select * from t_role where id in
+        <foreach collection="roleNoList" index="index" item="id" open="(" separator="," close=")">
+            #{roleNoList}
+        </foreach>
+    </select>
+
+<!--    test 元素-->
+    <select id="getRoleTest" resultMap="roleResultMap" parameterType="string">
+        <include refid="sel" />
+        <if test="type == 'Y'.toString()">
+            where 1 = 1
+        </if>
+    </select>
+</mapper>
