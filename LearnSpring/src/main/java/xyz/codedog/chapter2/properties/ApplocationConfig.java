@@ -1,7 +1,10 @@
 package xyz.codedog.chapter2.properties;
 
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 
 /**
  * @ClassName ApplocationConfig
@@ -11,7 +14,12 @@ import org.springframework.context.annotation.PropertySource;
  * @Version 1.0
  **/
 @Configuration
+@ComponentScan(basePackages = {"xyz.codedog.chapter2.properties"})
 @PropertySource(value = {"classpath:xyz/codedog/chapter2/database-config.properties"},ignoreResourceNotFound = true)
 public class ApplocationConfig {
+    @Bean
+    public PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigure() {
+        return new PropertySourcesPlaceholderConfigurer();
+    }
 
 }

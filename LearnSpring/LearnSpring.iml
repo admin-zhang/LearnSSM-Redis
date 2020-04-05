@@ -6,6 +6,7 @@
         <fileset id="fileset" name="Spring Application Context" removed="false">
           <file>file://$MODULE_DIR$/src/main/resources/xyz/codedog/chapter2/applicationContext.xml</file>
           <file>file://$MODULE_DIR$/src/main/resources/xyz/codedog/chapter1/applicationContext.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/xyz/codedog/chapter2/spring-prop.xml</file>
         </fileset>
       </configuration>
     </facet>
