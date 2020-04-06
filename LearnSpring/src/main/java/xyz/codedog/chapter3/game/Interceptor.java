@@ -7,7 +7,7 @@ package xyz.codedog.chapter3.game;
  * @Date 2020/4/5 17:21
  * @Version 1.0
  **/
-public interface Intercptor {
+public interface Interceptor {
     public void before(Object object);
 
     public void after(Object object);

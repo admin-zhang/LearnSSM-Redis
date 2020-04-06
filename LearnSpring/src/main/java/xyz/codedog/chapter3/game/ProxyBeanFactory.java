@@ -8,7 +8,7 @@ package xyz.codedog.chapter3.game;
  * @Version 1.0
  **/
 public class ProxyBeanFactory {
-    public static <T> T getBean(T obj, Intercptor intercptor) {
-        return (T) ProxyBeanUtil.getBean(obj, intercptor);
+    public static <T> T getBean(T obj, Interceptor interceptor) {
+        return (T) ProxyBeanUtil.getBean(obj, interceptor);
     }
 }
