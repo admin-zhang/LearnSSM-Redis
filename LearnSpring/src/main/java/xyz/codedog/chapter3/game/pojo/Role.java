@@ -18,15 +18,6 @@ public class Role {
     private String roleName;
     private String note;
 
-<<<<<<< HEAD
-=======
-    public Role(Long id, String roleName, String note) {
-        this.id = id;
-        this.roleName = roleName;
-        this.note = note;
-    }
-
->>>>>>> 0a7c798348cd0f2c84324c3eb518ceccbeb865f4
     public Long getId() {
         return id;
     }
