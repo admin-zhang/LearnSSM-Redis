@@ -17,7 +17,7 @@ import xyz.codedog.chapter3.game.pojo.Role;
  * @Version 1.0
  **/
 public class Chapter3Main {
-    private static final String resources = "xyz/codedog/chapter3/applicationContext.xml";
+    private static final String resources = "xyz/codedog/chapter3/aop/applicationContext.xml";
     ApplicationContext applicationContext = new ClassPathXmlApplicationContext(resources);
 
     @Test
@@ -47,4 +47,17 @@ public class Chapter3Main {
             roleService.printRole(role);
         }
     }
+
+    @Test
+    public void testXML() {
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("xyz/codedog/chapter3/xml/applicationContext.xml");
+        xyz.codedog.chapter3.xml.service.RoleService roleService = applicationContext.getBean(xyz.codedog.chapter3.xml.service.RoleService.class);
+        Role role = new Role();
+        role.setId(2L);
+        role.setRoleName("role-name-1");
+        role.setNote("note-1");
+        roleService.printRole(role);
+
+    }
+
 }

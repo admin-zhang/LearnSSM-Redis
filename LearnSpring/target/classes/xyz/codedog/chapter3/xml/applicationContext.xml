@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context  http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/aop  http://www.springframework.org/schema/aop/spring-aop.xsd">
+    <bean id="xmlAspect" class="xyz.codedog.chapter3.xml.aspect.XmlAspect"/>
+    <bean id="roleService" class="xyz.codedog.chapter3.xml.service.impl.RoleServiceImpl"/>
+    <aop:config>
+        <!--引用 xmlAspect 作为切面-->
+        <aop:aspect ref="xmlAspect">
+            <!--定义通知-->
+            <aop:before method="before" pointcut="execution(* xyz.codedog.chapter3.xml.service.impl.RoleServiceImpl.printRole(..))"/>
+            <aop:after method="after" pointcut="execution(* xyz.codedog.chapter3.xml.service.impl.RoleServiceImpl.printRole(..))"/>
+            <aop:after-throwing method="afterThrowing" pointcut="execution(* xyz.codedog.chapter3.xml.service.impl.RoleServiceImpl.printRole(..))"/>
+            <aop:after-returning method="afterReturning" pointcut="execution(* xyz.codedog.chapter3.xml.service.impl.RoleServiceImpl.printRole(..))"/>
+            <aop:around method="around" pointcut="execution(* xyz.codedog.chapter3.xml.service.impl.RoleServiceImpl.printRole(..))"/>
+        </aop:aspect>
+    </aop:config>
+</beans>
