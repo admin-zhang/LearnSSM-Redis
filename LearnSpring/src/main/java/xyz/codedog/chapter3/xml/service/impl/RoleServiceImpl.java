@@ -1,5 +1,6 @@
 package xyz.codedog.chapter3.xml.service.impl;
 
+import xyz.codedog.chapter3.aop.verifier.RoleVerifier;
 import xyz.codedog.chapter3.game.pojo.Role;
 import xyz.codedog.chapter3.xml.service.RoleService;
 
@@ -11,6 +12,7 @@ import xyz.codedog.chapter3.xml.service.RoleService;
  * @Version 1.0
  **/
 public class RoleServiceImpl implements RoleService {
+    public RoleVerifier roleVerifier = null;
 
     @Override
     public void printRole(Role role) {

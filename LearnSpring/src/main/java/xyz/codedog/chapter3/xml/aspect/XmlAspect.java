@@ -14,6 +14,10 @@ public class XmlAspect {
         System.out.println("before ....");
     }
 
+   /* public void before(Role role) {
+        System.out.println("role_id = " + role.getId() + "before ......");
+    }*/
+
     public void after() {
         System.out.println("after ....");
     }

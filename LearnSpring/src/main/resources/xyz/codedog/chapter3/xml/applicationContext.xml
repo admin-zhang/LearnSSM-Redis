@@ -1,41 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE beans [
-        <!ELEMENT beans (bean|aop:config)*>
-        <!ATTLIST beans
-                xmlns CDATA #REQUIRED
-                xmlns:xsi CDATA #REQUIRED
-                xmlns:context CDATA #REQUIRED
-                xmlns:aop CDATA #REQUIRED
-                xsi:schemaLocation CDATA #REQUIRED>
-        <!ELEMENT bean (#PCDATA)>
-        <!ATTLIST bean
-                class CDATA #REQUIRED
-                id CDATA #REQUIRED>
-        <!ELEMENT aop:config (aop:aspect)*>
-        <!ELEMENT aop:aspect (aop:before|aop:after|aop:after-throwing|aop:after-returning|aop:around)*>
-        <!ATTLIST aop:aspect
-                ref CDATA #REQUIRED>
-        <!ELEMENT aop:before (#PCDATA)>
-        <!ATTLIST aop:before
-                method CDATA #REQUIRED
-                pointcut CDATA #REQUIRED>
-        <!ELEMENT aop:after (#PCDATA)>
-        <!ATTLIST aop:after
-                method CDATA #REQUIRED
-                pointcut CDATA #REQUIRED>
-        <!ELEMENT aop:after-throwing (#PCDATA)>
-        <!ATTLIST aop:after-throwing
-                method CDATA #REQUIRED
-                pointcut CDATA #REQUIRED>
-        <!ELEMENT aop:after-returning (#PCDATA)>
-        <!ATTLIST aop:after-returning
-                method CDATA #REQUIRED
-                pointcut CDATA #REQUIRED>
-        <!ELEMENT aop:around (#PCDATA)>
-        <!ATTLIST aop:around
-                method CDATA #REQUIRED
-                pointcut CDATA #REQUIRED>
-        ]>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
@@ -45,6 +8,7 @@
         http://www.springframework.org/schema/aop  http://www.springframework.org/schema/aop/spring-aop.xsd">
     <bean id="xmlAspect" class="xyz.codedog.chapter3.xml.aspect.XmlAspect"/>
     <bean id="roleService" class="xyz.codedog.chapter3.xml.service.impl.RoleServiceImpl"/>
+    <bean id="roleVerifier" class="xyz.codedog.chapter3.aop.verifier.impl.RoleVerifierImpl"/>
     <aop:config>
         <!--引用 xmlAspect 作为切面-->
         <aop:aspect ref="xmlAspect">
@@ -54,6 +18,9 @@
             <aop:after-throwing method="afterThrowing" pointcut="execution(* xyz.codedog.chapter3.xml.service.impl.RoleServiceImpl.printRole(..))"/>
             <aop:after-returning method="afterReturning" pointcut="execution(* xyz.codedog.chapter3.xml.service.impl.RoleServiceImpl.printRole(..))"/>
             <aop:around method="around" pointcut="execution(* xyz.codedog.chapter3.xml.service.impl.RoleServiceImpl.printRole(..))"/>
+            <aop:declare-parents types-matching="xyz.codedog.chapter3.xml.service.impl.RoleServiceImpl+"
+                                 implement-interface="xyz.codedog.chapter3.aop.verifier.RoleVerifier"
+                                 default-impl="xyz.codedog.chapter3.aop.verifier.impl.RoleVerifierImpl"/>
         </aop:aspect>
     </aop:config>
 </beans>
