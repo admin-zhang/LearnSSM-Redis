@@ -8,6 +8,8 @@ import xyz.codedog.chapter3.aop.config.AopConfig;
 import xyz.codedog.chapter3.aop.service.RoleService;
 import xyz.codedog.chapter3.aop.verifier.RoleVerifier;
 import xyz.codedog.chapter3.game.pojo.Role;
+import xyz.codedog.chapter3.multi.bean.MultiBean;
+import xyz.codedog.chapter3.multi.config.MultiConfig;
 
 /**
  * @ClassName Chapter3Main
@@ -69,6 +71,16 @@ public class Chapter3Main {
         role.setNote("note-3");
         xyz.codedog.chapter3.game.service.RoleService roleService = (xyz.codedog.chapter3.game.service.RoleService) applicationContext.getBean("roleService");
         roleService.printRole(role);
+    }
+
+    @Test
+    public void testMulti() {
+        for (int i = 0; i < 10; i++) {
+            System.out.println("##############################################");
+            ApplicationContext applicationContext = new AnnotationConfigApplicationContext(MultiConfig.class);
+            MultiBean multiBean = applicationContext.getBean(MultiBean.class);
+            multiBean.testMulti();
+        }
     }
 
 }
