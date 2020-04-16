@@ -36,7 +36,7 @@ public class RoleDaoImpl implements RoleDao {
      */
     @Override
     public int deleteRole(JdbcTemplate jdbcTemplate, Long id) {
-        String sql = "delete from t_role where id = ?"
+        String sql = "delete from t_role where id = ?";
         return jdbcTemplate.update(sql,id);
     }
 
