@@ -1,10 +1,9 @@
 package xyz.codedog.chapter2.profile;
 
-import org.apache.commons.dbcp2.BasicDataSourceFactory;
+import org.apache.commons.dbcp.BasicDataSourceFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
-import sun.dc.pr.PRError;
 
 import javax.sql.DataSource;
 import java.util.Properties;

@@ -59,10 +59,24 @@
     </dependency>
 
     <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-dbcp2 -->
-    <dependency>
+   <!-- <dependency>
       <groupId>org.apache.commons</groupId>
       <artifactId>commons-dbcp2</artifactId>
       <version>2.7.0</version>
+    </dependency>-->
+
+    <!-- https://mvnrepository.com/artifact/commons-dbcp/commons-dbcp -->
+    <dependency>
+      <groupId>commons-dbcp</groupId>
+      <artifactId>commons-dbcp</artifactId>
+      <version>1.4</version>
+    </dependency>
+
+
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-jdbc</artifactId>
+      <version>5.1.8.RELEASE</version>
     </dependency>
 
     <!-- https://mvnrepository.com/artifact/org.springframework/spring-test -->

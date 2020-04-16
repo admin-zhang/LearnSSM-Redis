@@ -1,11 +1,10 @@
 package xyz.codedog.chapter2.properties;
 
-import org.apache.commons.dbcp2.BasicDataSourceFactory;
+import org.apache.commons.dbcp.BasicDataSourceFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import javax.sql.DataSource;
-import javax.xml.crypto.Data;
 import java.util.Properties;
 
 /**
