@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--构造器注入-->
+    <bean id="role" class="xyz.codedog.chapter10.pojo.Role">
+        <constructor-arg index="0" value="总经理"/>
+        <constructor-arg index="1" value="公司管理者"/>
+    </bean>
+
+    <!--setter 注入 常用 -->
+    <bean id="role1" class="xyz.codedog.chapter10.pojo.Role">
+        <property name="roleName" value="高级工程师"/>
+        <property name="note" value="重要人员"/>
+    </bean>
+
+    <bean id="role2" class="xyz.codedog.chapter10.pojo.Role">
+        <property name="id" value="1"/>
+        <property name="roleName" value="高级工程师"/>
+        <property name="note" value="重要人员"/>
+    </bean>
+
+    <!--装配集合类-->
+    <bean id="complexAssembly" class="xyz.codedog.chapter10.pojo.ComplexAssembly">
+        <property name="id" value="1"/>
+
+        <property name="list">
+            <list>
+                <value>value_list_1</value>
+                <value>value_list_2</value>
+                <value>value_list_3</value>
+            </list>
+        </property>
+
+        <property name="map">
+            <map>
+                <entry key="key1" value="value_key_1"/>
+                <entry key="key2" value="value_key_2"/>
+                <entry key="key3" value="value_key_3"/>
+            </map>
+        </property>
+
+        <property name="properties">
+            <props>
+                <prop key=" prop1">value_prop_1</prop>
+                <prop key=" prop2">value_prop_2</prop>
+                <prop key=" prop3">value_prop_3</prop>
+            </props>
+        </property>
+
+        <property name="set">
+            <set>
+                <value>value_set_1</value>
+                <value>value_set_2</value>
+                <value>value_set_3</value>
+            </set>
+        </property>
+
+        <property name="arrsy">
+            <array>
+                <value>value_array_1</value>
+                <value>value_array_2</value>
+                <value>value_array_3</value>
+            </array>
+        </property>
+    </bean>
+
+    <bean id="role3" class="xyz.codedog.chapter10.pojo.Role">
+        <property name="id" value="1"/>
+        <property name="roleName" value="role_name_1"/>
+        <property name="note" value="role_note_1"/>
+    </bean>
+
+    <bean id="role4" class="xyz.codedog.chapter10.pojo.Role">
+        <property name="id" value="2"/>
+        <property name="roleName" value="role_name_2"/>
+        <property name="note" value="role_note_2"/>
+    </bean>
+
+    <bean id="user1" class="xyz.codedog.chapter10.pojo.User">
+        <property name="id" value="1"/>
+        <property name="userName" value="user_name_1"/>
+        <property name="note" value="role_note_1"/>
+    </bean>
+
+    <bean id="user2" class="xyz.codedog.chapter10.pojo.User">
+        <property name="id" value="2"/>
+        <property name="userName" value="user_name_2"/>
+        <property name="note" value="role_note_2"/>
+    </bean>
+
+    <bean id="userRoleAssembly" class="xyz.codedog.chapter10.pojo.UserRoleAssembly">
+        <property name="id" value="1"/>
+        <property name="list">
+            <list>
+                <ref bean="role3"/>
+                <ref bean="role4"/>
+            </list>
+        </property>
+
+        <property name="map">
+            <map>
+                <entry key-ref="role3" value-ref="user1"/>
+                <entry key-ref="role4" value-ref="user2"/>
+            </map>
+        </property>
+
+        <property name="set">
+            <set>
+                <ref bean="role3"/>
+                <ref bean="role4"/>
+            </set>
+        </property>
+    </bean>
+</beans>

@@ -1,14 +1,5 @@
-package xyz.codedog.chapter5.pojo;
+package xyz.codedog.chapter12.pojo;
 
-import xyz.codedog.chapter12.pojo.SexEnum;
-
-/**
- * @ClassName User
- * @Description TODO
- * @Author Administrator
- * @Date 2020/3/20 21:29
- * @Version 1.0
- **/
 public class User {
     private Long id;
     private String userName;
