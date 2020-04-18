@@ -43,4 +43,22 @@ public interface RoleDao {
      * @return
      */
     public List<Role> findRole(JdbcTemplate jdbcTemplate, String roleName);
+
+    /**
+     * 执行多条SQL
+     *
+     * 使用ConnectionCallback接口进行回调
+     * @param jdbcTemplate
+     * @param id
+     * @return
+     */
+    public Role getRoleByConnectionCallback(JdbcTemplate jdbcTemplate, Long id);
+
+    /**
+     * 使用StatementCallback接口进行回调
+     * @param jdbcTemplate
+     * @param id
+     * @return
+     */
+    public Role getRoleStatementCallback(JdbcTemplate jdbcTemplate, Long id);
 }
