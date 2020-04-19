@@ -51,14 +51,14 @@ public class chapter12Main {
         List roleList = roleDao.findRole(jdbcTemplate, "role");
         System.out.println(roleList.size());
         Role role = new Role();
-        role.setId(7L);
+        role.setId(8L);
         role.setRoleName("update_role_name_1");
         role.setNote("update_note_1");
         System.out.println("开始更新数据");
         roleDao.updateRole(jdbcTemplate, role);
         System.out.println("数据更新完成");
         System.out.println("开始删除数据");
-        roleDao.deleteRole(jdbcTemplate, 5L);
+        roleDao.deleteRole(jdbcTemplate, 3L);
         System.out.println("数据删除完成");
         System.out.println("ConnectionCallback接口");
         roleDao.getRoleByConnectionCallback(jdbcTemplate, 1L);

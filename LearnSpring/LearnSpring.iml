@@ -3,17 +3,20 @@
   <component name="FacetManager">
     <facet type="Spring" name="Spring">
       <configuration>
-        <fileset id="fileset" name="Spring Application Context" removed="false" />
-        <fileset id="fileset2" name="Spring Application Context (2)" removed="false">
-          <file>file://$MODULE_DIR$/src/main/resources/xyz/codedog/chapter3/aspect/applicationContext.xml</file>
-          <file>file://$MODULE_DIR$/src/main/resources/xyz/codedog/chapter2/applicationContext.xml</file>
-          <file>file://$MODULE_DIR$/src/main/resources/xyz/codedog/chapter1/applicationContext.xml</file>
-          <file>file://$MODULE_DIR$/src/main/resources/xyz/codedog/chapter3/xml/applicationContext.xml</file>
-          <file>file://$MODULE_DIR$/src/main/resources/xyz/codedog/chapter3/aop/applicationContext.xml</file>
-          <file>file://$MODULE_DIR$/src/main/resources/xyz/codedog/chapter4/applicationContext01.xml</file>
-          <file>file://$MODULE_DIR$/src/main/resources/xyz/codedog/chapter2/spring-database.xml</file>
-          <file>file://$MODULE_DIR$/src/main/resources/xyz/codedog/chapter2/spring-profile.xml</file>
-          <file>file://$MODULE_DIR$/src/main/resources/xyz/codedog/chapter2/spring-prop.xml</file>
+        <fileset id="fileset3" name="Spring Application Context " removed="false">
+          <file>file://$MODULE_DIR$/src/main/resources/xyz/codedog/chapter11/aop/applicationContext.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/xyz/codedog/chapter11/aspect/applicationContext.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/xyz/codedog/chapter11/xml/applicationContext.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/xyz/codedog/chapter13/applicationContext.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/xyz/codedog/chapter9/applicationContext.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/xyz/codedog/chapter10/applicationContext.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/xyz/codedog/chapter12/applicationContext01.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/xyz/codedog/chapter10/spring-database.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/xyz/codedog/chapter10/spring-profile.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/xyz/codedog/chapter10/spring-prop.xml</file>
+          <file>file://$MODULE_DIR$/src/main/java/xyz/codedog/chapter11/aop/config/AopConfig.java</file>
+          <file>file://$MODULE_DIR$/src/main/java/xyz/codedog/chapter10/properties/ApplocationConfig.java</file>
+          <file>file://$MODULE_DIR$/src/main/java/xyz/codedog/chapter11/multi/config/MultiConfig.java</file>
         </fileset>
       </configuration>
     </facet>
