@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/LearnMyBatis/LearnMyBatis/LearnMyBatis.iml" filepath="$PROJECT_DIR$/LearnMyBatis/LearnMyBatis/LearnMyBatis.iml" />
       <module fileurl="file://$PROJECT_DIR$/LearnSSM-Redis.iml" filepath="$PROJECT_DIR$/LearnSSM-Redis.iml" />
       <module fileurl="file://$PROJECT_DIR$/LearnSpring/LearnSpring.iml" filepath="$PROJECT_DIR$/LearnSpring/LearnSpring.iml" />
+      <module fileurl="file://$PROJECT_DIR$/LearnSpringMVC/LearnSpringMVC/LearnSpringMVC.iml" filepath="$PROJECT_DIR$/LearnSpringMVC/LearnSpringMVC/LearnSpringMVC.iml" />
     </modules>
   </component>
 </project>

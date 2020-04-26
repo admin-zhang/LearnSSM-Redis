@@ -7,12 +7,14 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="LearnMyBatis" />
+        <module name="LearnSpringMVC" />
         <module name="LearnSpring" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="LearnMyBatis" target="1.8" />
       <module name="LearnSpring" target="1.8" />
+      <module name="LearnSpringMVC" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
