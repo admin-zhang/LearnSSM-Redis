@@ -9,6 +9,8 @@ import xyz.codedog.chapter13.mapper.RoleMapper;
 import xyz.codedog.chapter13.pojo.Role;
 import xyz.codedog.chapter13.service.RoleService;
 
+import java.util.List;
+
 /**
  * @ClassName RoleServiceImpl
  * @Description TODO
@@ -26,5 +28,20 @@ public class RoleServiceImpl implements RoleService {
     @Transactional(propagation = Propagation.REQUIRES_NEW,isolation = Isolation.READ_COMMITTED)
     public int insertRole(Role role) {
         return roleMapper.insertRole(role);
+    }
+
+    @Override
+    @Transactional(propagation = Propagation.REQUIRED,isolation = Isolation.READ_COMMITTED)
+    public int insertRoleList(List<Role> roleList) {
+        int count = 0;
+        for (Role role : roleList) {
+            try {
+                insertRole(role);
+                count++;
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return count;
     }
 }

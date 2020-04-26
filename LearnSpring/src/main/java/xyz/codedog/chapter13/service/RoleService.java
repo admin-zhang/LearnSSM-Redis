@@ -2,6 +2,8 @@ package xyz.codedog.chapter13.service;
 
 import xyz.codedog.chapter13.pojo.Role;
 
+import java.util.List;
+
 /**
  * @ClassName RoleService
  * @Description TODO
@@ -11,4 +13,6 @@ import xyz.codedog.chapter13.pojo.Role;
  **/
 public interface RoleService {
     public int insertRole(Role role);
+
+    public int insertRoleList(List<Role> roleList);
 }
