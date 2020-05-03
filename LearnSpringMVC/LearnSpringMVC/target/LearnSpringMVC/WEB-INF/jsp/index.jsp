@@ -11,6 +11,6 @@
     <title>笨蛋，这么久才做好</title>
 </head>
 <body>
-    <h1>Hello,Spring MVC！</h1>
+    <h1>我对笨蛋说 Hello,Spring MVC！</h1>
 </body>
 </html>
